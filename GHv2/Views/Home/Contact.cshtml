@@ -1,17 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Contact";
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<IdentityUser> UserManager
+
+<br />
+
+@{
+    ViewData["Title"] = "Information";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<br />
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+<div class="row">
+    <div class="col-xs-6 col-md-4">
+        <br />
+        <img src="~/images/lavender900px.jpg" class="img-responsive img-circle"/>
+        <br />
+        <h4>@UserManager.GetUserName(User) Please Contact Us Below!</h4>
+        <p>
+            Andrew Andresen<br />
+            CS499<br />
+            Final Project<br />
+        </p>
+        <address>
+            <strong>Support:</strong> <a href="mailto:Support@gardenhelper.com">Support@gardenhelper.com</a><br />
+            <strong>Marketing:</strong> <a href="mailto:Marketing@gardenhelper.com">Marketing@gardenhelper.com</a>
+        </address>
+
+
+    </div>
+
+</div>

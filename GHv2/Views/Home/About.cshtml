@@ -1,7 +1,42 @@
-﻿@{
-    ViewData["Title"] = "About";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+﻿@using Microsoft.AspNetCore.Identity
 
-<p>Use this area to provide additional information.</p>
+@inject UserManager<IdentityUser> UserManager
+
+<br />
+<img src="~/images/istockphoto-165831199-170667a.jpg" alt="..." class="img-responsive">
+<br />
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <h2 class="panel-title">Add a Plant</h2>
+    </div>
+    <div class="panel-body">
+        <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="About">
+            <table>
+                <tr>
+                    <td><input type="text" id="txtName" name="Name" placeholder="Name" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtLocation" name="Location" placeholder="Location" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtDateIn" name="DateIn" placeholder="Planted Date" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="txtDateOut" name="DateOut" placeholder="Harvest Date" /></td>
+                </tr>
+
+                <tr>
+                    <td><input type="hidden" id="txtCurrentUser" name="CurrentUser" value="@UserManager.GetUserId(User)" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+            <hr />
+        </form>
+    </div>
+</div>
+
+

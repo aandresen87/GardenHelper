@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<IdentityUser> UserManager
+
+<br />
+<div class="img-responsive img-rounded">
+    <img src="~/images/logoDesign2.png" class="img-box" alt="...">
+</div>
+<br />
+<div class="panel panel-default">
+    
+    <div class="panel-body">
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Remove">
+                    <input type="hidden" id="txtCurrentUser" name="CurrentUser" value="@UserManager.GetUserId(User)" />
+                    <input type="submit" class="btn btn-danger" value="Delete Plant List" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <p class="panel-footer">This will delete all plants in your garden!</p>
+    </div>
+</div>
